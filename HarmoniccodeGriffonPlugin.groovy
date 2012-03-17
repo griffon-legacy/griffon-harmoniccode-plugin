@@ -33,31 +33,72 @@
  */
 class HarmoniccodeGriffonPlugin {
     // the plugin version
-    def version = "0.1"
+    String version = '0.2'
     // the version or versions of Griffon the plugin is designed for
-    def griffonVersion = '0.9 > *' 
+    String griffonVersion = '0.9.5 > *'
     // the other plugins this plugin depends on
-    def dependsOn = ['trident-builder':0.5]
+    Map dependsOn = [swing: '0.9.5', 'trident-builder': '0.8']
     // resources that are included in plugin packaging
-    def pluginIncludes = []
+    List pluginIncludes = []
     // the plugin license
-    def license = 'BSD'
+    String license = 'BSD'
     // Toolkit compatibility. No value means compatible with all
     // Valid values are: swing, javafx, swt, pivot, gtk
-    def toolkits = ['swing']
+    List toolkits = ['swing']
     // Platform compatibility. No value means compatible with all
     // Valid values are:
     // linux, linux64, windows, windows64, macosx, macosx64, solaris
-    def platforms = []
+    List platforms = []
+    // URL where documentation can be found
+    String documentation = ''
+    // URL where source can be found
+    String source = 'https://github.com/griffon/griffon-harmoniccode-plugin'
 
-    def author = 'Andres Almirays'
-    def authorEmail = 'aalmiray@users.sourceforge.net'
-    def title = "Gerrit Grunwald's Fun Components"
-    def description = '''
-Gerrit Grunwald's Fun components
-http://harmoniccode.blogspot.com
+    List authors = [
+        [
+            name: 'Andres Almiray',
+            email: 'aalmiray@yahoo.com'
+        ]
+    ]
+    String title = "Gerrit Grunwald's Friday Fun components"
+    // accepts Markdown syntax. See http://daringfireball.net/projects/markdown/ for details
+    String description = '''
+Delivers [@hansolo_][1]'s [Friday Fun components][2].
+
+Usage
+-----
+
+The following nodes will become available on a View script upon installing this plugin
+
+| *Node*            | *Type*                              | 
+| ---------------- | ------------------------------------ |
+| animatedProgress | `eu.hansolo.custom.AnimatedProgress` |
+| flipChar         | `eu.hansolo.custom.FlipChar`         |
+| mbutton          | `eu.hansolo.custom.MButton`          |
+| nixieNumber      | `eu.hansolo.custom.NixieNumber`      |
+| note             | `eu.hansolo.custom.Note`             |
+| rangeSlider      | `eu.hansolo.custom.RangeSlider`      |
+| rollingCounter   | `eu.hansolo.custom.Counter`          |
+| semaphore        | `eu.hansolo.custom.Semaphore`        |
+| signalTower      | `eu.hansolo.custom.Design42`         |
+| steelCheckBox    | `eu.hansolo.custom.SteelCheckBox`    |
+
+The following Java2D paint classes are also available
+ 
+ * `eu.hansolo.gradients.BiLinearGradientPaint`
+ * `eu.hansolo.gradients.ConicalGradientPaint`
+ * `eu.hansolo.gradients.ContourGradientPaint`
+ 
+The following properties are also available
+
+ * COUNTER_THEME_BRIGHT, COUNTER_THEME_DARK
+ * COLOR_DEF_RED, COLOR_DEF_ORANGE, COLOR_DEF_YELLOW, COLOR_DEF_GREEN, COLOR_DEF_BLUE, COLOR_DEF_GRAY, COLOR_DEF_CYAN,
+ COLOR_DEF_MAGENTA, COLOR_DEF_RAITH, COLOR_DEF_GREEN_LCD, COLOR_DEF_JUG_GREEN, COLOR_DEF_WHITE
+
+
+[1]: http://twitter.com/hansolo_
+[2]: http://harmoniccode.blogspot.com/
 '''
-
-    // URL to the plugin's documentation
-    def documentation = 'http://griffon.codehaus.org/Harmoniccode+Plugin'
 }
+
+

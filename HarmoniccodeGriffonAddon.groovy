@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2010 griffon-harmoniccode - Andres Almiray. All Rights Reserved.
+ * Copyright (c) 2010-2012 griffon-harmoniccode - Andres Almiray. All Rights Reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -29,9 +29,7 @@
  */
 
 import groovy.swing.factory.RichActionWidgetFactory
-import eu.hansolo.custom.mbutton.*
 import eu.hansolo.custom.*
-import eu.hansolo.signaltower.*
 import eu.hansolo.tools.ColorDef
 
 import griffon.core.GriffonApplication
@@ -46,14 +44,20 @@ class HarmoniccodeGriffonAddon {
         }
     }
 
-    def factories = [
+    Map factories = [
+        animatedProgress: AnimatedProgress,
+        flipChar: FlipChar,
         mbutton: new RichActionWidgetFactory(MButton),
-        steelCheckBox: new RichActionWidgetFactory(SteelCheckBox),
+        nixieNumber: NixieNumber,
+        note: Note,
+        rangeSlider: RangeSlider,
         rollingCounter: Counter,
-        signalTower: Design42
+        semaphore: Semaphore,
+        signalTower: Design42,
+        steelCheckBox: new RichActionWidgetFactory(SteelCheckBox)
     ]
 
-    def props = [
+    Map props = [
         COUNTER_THEME_BRIGHT: [get: {Theme.BRIGHT}],
         COUNTER_THEME_DARK: [get: {Theme.DARK}]
     ]

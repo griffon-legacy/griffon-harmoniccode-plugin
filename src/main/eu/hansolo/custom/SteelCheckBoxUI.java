@@ -245,7 +245,7 @@ public class SteelCheckBoxUI extends javax.swing.plaf.basic.BasicCheckBoxUI impl
                 new java.awt.Color(0xF2F2F2)
             };
         }
-        final eu.hansolo.tools.ConicalGradientPaint KNOB_GRADIENT = new eu.hansolo.tools.ConicalGradientPaint(true, KNOB_CENTER, 0f, KNOB_FRACTIONS, KNOB_COLORS);
+        final eu.hansolo.gradients.ConicalGradientPaint KNOB_GRADIENT = new eu.hansolo.gradients.ConicalGradientPaint(true, KNOB_CENTER, 0f, KNOB_FRACTIONS, KNOB_COLORS);
         G2.setPaint(KNOB_GRADIENT);
         G2.fill(KNOB);
 

@@ -1,4 +1,4 @@
-package eu.hansolo.custom.mbutton;
+package eu.hansolo.custom;
 
 
 /**

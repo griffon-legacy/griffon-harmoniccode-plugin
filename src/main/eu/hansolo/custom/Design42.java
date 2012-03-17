@@ -1,4 +1,4 @@
-package eu.hansolo.signaltower;
+package eu.hansolo.custom;
 
 
 /**

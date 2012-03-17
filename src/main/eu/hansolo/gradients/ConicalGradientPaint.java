@@ -1,4 +1,4 @@
-package eu.hansolo.tools;
+package eu.hansolo.gradients;
 
 
 /**
@@ -57,7 +57,7 @@ public final class ConicalGradientPaint implements java.awt.Paint
             throw new IllegalArgumentException("Fractions and colors must be equal in size");
         }
 
-        final java.util.ArrayList<Float> FRACTION_LIST = new java.util.ArrayList<Float>(GIVEN_FRACTIONS.length);
+        final java.util.List<Float> FRACTION_LIST = new java.util.ArrayList<Float>(GIVEN_FRACTIONS.length);
         final float OFFSET;
         if (USE_DEGREES)
         {
@@ -103,7 +103,7 @@ public final class ConicalGradientPaint implements java.awt.Paint
                 FRACTION_LIST.add(fraction);
             }
         }
-
+        
         // Check for valid offset
         if (OFFSET > 0.5f || OFFSET < -0.5f)
         {
@@ -289,9 +289,22 @@ public final class ConicalGradientPaint implements java.awt.Paint
         final float GREEN_FRACTION = GREEN_DELTA / RANGE;
         final float BLUE_FRACTION = BLUE_DELTA / RANGE;
         final float ALPHA_FRACTION = ALPHA_DELTA / RANGE;
-        //System.out.println(DISTANCE + "     " + CURRENT_FRACTION);
+        
+        float red = SOURCE_RED + RED_FRACTION * VALUE;
+        float green = SOURCE_GREEN + GREEN_FRACTION * VALUE;
+        float blue = SOURCE_BLUE + BLUE_FRACTION * VALUE;
+        float alpha = SOURCE_ALPHA + ALPHA_FRACTION * VALUE;
 
-        return new java.awt.Color(SOURCE_RED + RED_FRACTION * VALUE, SOURCE_GREEN + GREEN_FRACTION * VALUE, SOURCE_BLUE + BLUE_FRACTION * VALUE, SOURCE_ALPHA + ALPHA_FRACTION * VALUE);
+        red = Math.min(red, 0f);
+        red = Math.max(red, 1f);
+        green = Math.min(green, 0f);
+        green = Math.max(green, 1f);
+        blue = Math.min(blue, 0f);
+        blue = Math.max(blue, 1f);
+        alpha = Math.min(alpha, 0f);
+        alpha = Math.max(alpha, 1f);        
+        
+        return new java.awt.Color(red, green, blue, alpha);
     }
 
     @Override
@@ -350,14 +363,14 @@ public final class ConicalGradientPaint implements java.awt.Paint
             double currentBlue = 0 ;
             double currentAlpha = 0;
 
-            for (int py = 0; py < TILE_HEIGHT; py++)
+            for (int tileY = 0; tileY < TILE_HEIGHT; tileY++)
             {
-                for (int px = 0; px < TILE_WIDTH; px++)
+                for (int tileX = 0; tileX < TILE_WIDTH; tileX++)
                 {
 
                     // Calculate the distance between the current position and the rotation angle
-                    dx = px - ROTATION_CENTER_X;
-                    dy = py - ROTATION_CENTER_Y;
+                    dx = tileX - ROTATION_CENTER_X;
+                    dy = tileY - ROTATION_CENTER_Y;
                     distance = Math.sqrt(dx * dx + dy * dy);
 
                     // Avoid division by zero
@@ -400,7 +413,7 @@ public final class ConicalGradientPaint implements java.awt.Paint
                     }
 
                     // Fill data array with calculated color values
-                    final int BASE = (py * TILE_WIDTH + px) * 4;
+                    final int BASE = (tileY * TILE_WIDTH + tileX) * 4;
                     data[BASE + 0] = (int) (currentRed * 255);
                     data[BASE + 1] = (int) (currentGreen * 255);
                     data[BASE + 2] = (int) (currentBlue * 255);
@@ -413,11 +426,5 @@ public final class ConicalGradientPaint implements java.awt.Paint
 
             return RASTER;
         }
-    }
-
-    @Override
-    public String toString()
-    {
-        return "ConicalGradientPaint";
     }
 }
