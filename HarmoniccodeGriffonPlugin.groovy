@@ -33,7 +33,7 @@
  */
 class HarmoniccodeGriffonPlugin {
     // the plugin version
-    String version = '0.2'
+    String version = '0.3'
     // the version or versions of Griffon the plugin is designed for
     String griffonVersion = '0.9.5 > *'
     // the other plugins this plugin depends on
@@ -79,6 +79,7 @@ The following nodes will become available on a View script upon installing this 
 | note             | `eu.hansolo.custom.Note`             |
 | rangeSlider      | `eu.hansolo.custom.RangeSlider`      |
 | rollingCounter   | `eu.hansolo.custom.Counter`          |
+| score            | `eu.hansolo.custom.Score`            |
 | semaphore        | `eu.hansolo.custom.Semaphore`        |
 | signalTower      | `eu.hansolo.custom.Design42`         |
 | steelCheckBox    | `eu.hansolo.custom.SteelCheckBox`    |

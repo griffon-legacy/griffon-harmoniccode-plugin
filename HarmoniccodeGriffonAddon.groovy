@@ -52,6 +52,7 @@ class HarmoniccodeGriffonAddon {
         note: Note,
         rangeSlider: RangeSlider,
         rollingCounter: Counter,
+        score: Score,
         semaphore: Semaphore,
         signalTower: Design42,
         steelCheckBox: new RichActionWidgetFactory(SteelCheckBox)
