@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2010 griffon-harmoniccode - Andres Almiray. All Rights Reserved.
+ * Copyright (c) 2010-2012 griffon-harmoniccode - Andres Almiray. All Rights Reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -33,11 +33,11 @@
  */
 class HarmoniccodeGriffonPlugin {
     // the plugin version
-    String version = '0.3'
+    String version = '1.0.0'
     // the version or versions of Griffon the plugin is designed for
-    String griffonVersion = '0.9.5 > *'
+    String griffonVersion = '1.0.0 > *'
     // the other plugins this plugin depends on
-    Map dependsOn = [swing: '0.9.5', 'trident-builder': '0.8']
+    Map dependsOn = ['trident-builder': '1.0.0']
     // resources that are included in plugin packaging
     List pluginIncludes = []
     // the plugin license
@@ -106,7 +106,6 @@ The following properties are also available
  * `COLOR_DEF_GREEN_LCD`
  * `COLOR_DEF_JUG_GREEN`
  * `COLOR_DEF_WHITE`
-
 
 [1]: http://twitter.com/hansolo_
 [2]: http://harmoniccode.blogspot.com/
